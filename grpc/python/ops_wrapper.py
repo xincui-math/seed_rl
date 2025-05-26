@@ -18,10 +18,8 @@ from __future__ import division
 from __future__ import print_function
 
 import os.path
-
-
 import tensorflow as tf
 
-gen_grpc_ops = tf.load_op_library(
-    os.path.join(tf.compat.v1.resource_loader.get_data_files_path(),
-                 '../grpc_cc.so'))
+_so_path = os.path.join(os.path.dirname(__file__), '..', 'grpc_cc.so')
+gen_grpc_ops = tf.load_op_library(_so_path)
+
